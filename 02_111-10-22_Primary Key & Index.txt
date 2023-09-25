@@ -1,0 +1,120 @@
+111-10-21_建立主鍵 & 索引鍵
+
+-------------------------------------------------
+建立主鍵
+ADD PRIMARY KEY
+-------------------------------------------------
+ALTER TABLE `orderdetail` ADD PRIMARY KEY (`seq`);
+ALTER TABLE `inv` ADD PRIMARY KEY (`prodId`);
+ALTER TABLE `purchasedetail` ADD PRIMARY KEY (`seq`);
+ALTER TABLE `salesorder` ADD PRIMARY KEY (`OrderId`);
+ALTER TABLE `product` ADD PRIMARY KEY (`ProdID`);
+ALTER TABLE `quota` ADD PRIMARY KEY (`EmpId`);
+ALTER TABLE `dept` ADD PRIMARY KEY (`DeptId`);
+ALTER TABLE `purchaseorder` ADD PRIMARY KEY (`PurchaseId`);
+ALTER TABLE `supplier` ADD PRIMARY KEY (`SupplierId`);
+ALTER TABLE `customer` ADD PRIMARY KEY (`CustId`);
+ALTER TABLE `employee` ADD PRIMARY KEY (`EmpId`);
+ALTER TABLE `students` ADD PRIMARY KEY (`ClassNo`);
+
+-------------------------------------------------
+建立索引鍵
+ADD INDEX
+-------------------------------------------------
+1.
+ALTER TABLE orderdetail ADD INDEX(OrderId);
+ALTER TABLE salesorder ADD INDEX(OrderId);
+
+2.
+ALTER TABLE orderdetail ADD INDEX(ProdId);
+ALTER TABLE purchasedetail ADD INDEX(ProdId);
+ALTER TABLE product ADD INDEX(ProdId);
+
+3.
+ALTER TABLE inv ADD INDEX(ProdId);
+ALTER TABLE product ADD INDEX(ProdId);
+
+4.
+ALTER TABLE purchasedetail ADD INDEX(PurchaseId);
+ALTER TABLE purchaseorder ADD INDEX(PurchaseId);
+
+5.
+ALTER TABLE dept ADD INDEX(DeptId);
+ALTER TABLE employee ADD INDEX(DeptId);
+
+6.
+ALTER TABLE purchaseorder ADD INDEX(SupplierId);
+ALTER TABLE supplier ADD INDEX(SupplierId);
+
+7.
+ALTER TABLE salesorder ADD INDEX(EmpId);
+ALTER TABLE quota ADD INDEX(EmpId);
+ALTER TABLE purchaseorder ADD INDEX(EmpId);
+ALTER TABLE employee ADD INDEX(EmpId);
+
+8.
+ALTER TABLE exp ADD INDEX(EmpId);
+ALTER TABLE person ADD INDEX(EmpId);
+ALTER TABLE leav ADD INDEX(EmpId);
+ALTER TABLE overtime ADD INDEX(EmpId);
+
+9.
+ALTER TABLE salesorder ADD INDEX(CustId);
+ALTER TABLE customer ADD INDEX(CustId);
+
+10.
+ALTER TABLE students ADD INDEX(ClassNo);
+ALTER TABLE records ADD INDEX(ClassNo);
+
+11.
+ALTER TABLE dept ADD INDEX(ManagerName);
+ALTER TABLE employee ADD INDEX(EmpName);
+
+
+delete from dept
+-------------------------------------------------
+建立索引鍵
+ADD INDEX
+-------------------------------------------------
+ALTER TABLE orderdetail ADD INDEX(OrderId);
+ALTER TABLE salesorder ADD INDEX(OrderId);
+
+ALTER TABLE orderdetail ADD INDEX(ProdId);
+ALTER TABLE purchasedetail ADD INDEX(ProdId);
+ALTER TABLE product ADD INDEX(ProdId);
+
+ALTER TABLE inv ADD INDEX(ProdId);
+ALTER TABLE product ADD INDEX(ProdId);
+
+ALTER TABLE purchasedetail ADD INDEX(PurchaseId);
+ALTER TABLE purchaseorder ADD INDEX(PurchaseId);
+
+ALTER TABLE dept ADD INDEX(DeptId);
+ALTER TABLE employee ADD INDEX(DeptId);
+
+ALTER TABLE purchaseorder ADD INDEX(SupplierId);
+ALTER TABLE supplier ADD INDEX(SupplierId);
+
+ALTER TABLE salesorder ADD INDEX(EmpId);
+ALTER TABLE quota ADD INDEX(EmpId);
+ALTER TABLE purchaseorder ADD INDEX(EmpId);
+ALTER TABLE employee ADD INDEX(EmpId);
+
+ALTER TABLE exp ADD INDEX(EmpId);
+ALTER TABLE person ADD INDEX(EmpId);
+ALTER TABLE leav ADD INDEX(EmpId);
+ALTER TABLE overtime ADD INDEX(EmpId);
+
+ALTER TABLE salesorder ADD INDEX(CustId);
+ALTER TABLE customer ADD INDEX(CustId);
+
+ALTER TABLE students ADD INDEX(ClassNo);
+ALTER TABLE records ADD INDEX(ClassNo);
+
+ALTER TABLE dept ADD INDEX(ManagerName);
+ALTER TABLE employee ADD INDEX(EmpName);
+
+
+
+
+

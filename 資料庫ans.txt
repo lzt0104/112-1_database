@@ -1,0 +1,46 @@
+第一題：
+SELECT prodname as 產品名稱,(unitprice-cost)/cost as 毛利率,unitprice as 單價,cost as 成本 
+FROM product 
+ORDER by 毛利率 DESC
+
+第二題：
+SELECT prodname as 產品名稱,stock as 現存量,safestock as 安全庫存,cost as 成本,cost*stock as 庫存現值 FROM inv,product WHERE inv.ProdId=product.ProdID AND stock > safestock*3 ORDER BY cost*stock desc
+
+第三題：
+SELECT DISTINCT（不重複資料） ProdName as 產品名稱
+FROM salesorder,orderdetail,employee,product
+WHERE salesorder.EmpId=employee.EmpId
+AND salesorder.OrderId=orderdetail.OrderId
+AND product.ProdID=orderdetail.ProdId
+and city='台北市'
+and year(OrderDate)=2018
+ORDER by ProdName
+
+第四題
+SELECT prodname as 產品名稱,cost*stock as 庫存成本,cost*(stock-safestock) as 冗餘成本 FROM inv,product where inv.ProdId=product.ProdID and stock>safestock ORDER by prodname
+
+第五題：
+（要把表拆成兩個A.B去比較）
+SELECT B.Empname as 姓名,B.Jobtitle as 現任職稱 FROM employee A, employee B WHERE A.City = B.City and A.JobTitle='總經理' and B.JobTitle<>'總經理' ORDER by b.EmpName
+
+第六題：
+SELECT empname as 姓名,employee.jobtitle as 現任職稱,deptname as 部門名稱,2022-year(birth) as 年齡, 2022-workyear as 年資
+FROM exp,person,employee,dept （選擇資料表）
+WHERE dept.DeptId=employee.DeptId （串關聯）
+AND employee.EmpId=exp.EmpId 
+AND employee.EmpId=person.EmpId 
+AND 2022-year(birth) BETWEEN 25 
+AND 40 AND (compjob1 like '%研發%' or compjob2 like '%研發%' or outsidejob1 like '%研發%' or outsidejob2 like '%研發%') 
+AND (Expertise1 = "電子電路" or Expertise1 = "數位電路" or Expertise2 = "電子電路" or Expertise2 = "數位電路") 
+AND 2022-workyear >=3 （判斷年資）
+ORDER by 2022-year(birth) DESC （排序）
+
+第七題：
+SELECT deptname as 部門名稱,empname as 姓名,jobtitle as 現任職稱,monthsalary as 目前月薪資,sum(overhours) as 加班時數總計,sum(monthsalary/224*1.5*overhours) as 加班費
+FROM employee,dept,overtime
+WHERE employee.DeptId=dept.DeptId（串資料表）
+AND employee.EmpId=overtime.EmpId
+AND year(overdate)=2018
+AND deptname like '%研發%'
+GROUP BY deptname,empname,jobtitle,monthsalary（群組）
+ORDER BY deptname,monthsalary desc

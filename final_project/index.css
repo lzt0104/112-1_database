@@ -1,68 +1,67 @@
+/* 通用樣式 */
 .show {
     text-align: center;
-    width: 100%; /* 替換原來的45cm */
+    width: 100%; /* 改為百分比以增加響應性 */
     font-size: 16pt;
 }
-body{
+
+body {
     text-align: center;
     font-size: 18pt;
     font-family: '微軟正黑體';
 }
-.func_butt{
+
+.func_butt, .del_butt, .chge_butt {
     border-radius: 10px;
     border: 2px solid black;
     background-color: white;
-    width: 3cm;height: 1cm;
+    width: 100%; /* 改為百分比 */
+    height: 1cm;
     font-size: 15pt;
+    margin-bottom: 10px; /* 添加底部邊距以改善觸摸屏操作 */
 }
-.func_butt:hover{
-    background-color: black;
-    color: white;
-}
-.del_butt{
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: rgb(185, 51, 51);
-    width: 3cm;height: 1cm;
-    font-size: 15pt;
-}
-.del_butt:hover{
-    background-color: rgb(82, 4, 4);
-    color: white;
-}
-.chge_butt{
-    border-radius: 10px;
-    border: 2px solid black;
-    background-color: rgb(212, 216, 5);
-    width: 3cm;height: 1cm;
-    font-size: 15pt;
-}
-.chge_butt:hover{
-    background-color: rgb(99, 100, 4);
-    color: white;
-}
-table{
-    border-collapse:separate; border-spacing:40px 15px;
+
+.func_butt:hover { background-color: black; color: white; }
+.del_butt { background-color: rgb(185, 51, 51); }
+.del_butt:hover { background-color: rgb(82, 4, 4); color: white; }
+.chge_butt { background-color: rgb(212, 216, 5); }
+.chge_butt:hover { background-color: rgb(99, 100, 4); color: white; }
+
+table {
+    border-collapse: separate;
+    border-spacing: 40px 15px;
     text-align: center;
+    width: 100%; /* 添加百分比寬度 */
 }
-input[type='text']{
-    width: 8cm;
+
+input[type='text'] {
+    width: 100%; /* 改為百分比 */
     height: 0.8cm;
     border: 0.5px solid gray;
     border-radius: 5px;
     font-size: 14pt;
 }
+
+/* 小型裝置（手機） */
 @media (max-width: 600px) {
-    body {
-        font-size: 16pt; /* 調整字體大小 */
+    body, .show, .func_butt, .del_butt, .chge_butt, input[type='text'] {
+        font-size: 12pt; /* 縮小字體大小 */
     }
-
-    .show, .func_butt, .del_butt, .chge_butt {
-        width: 90%; /* 調整寬度以適應螢幕 */
-        font-size: 12pt; /* 調整字體大小 */
+    .func_butt, .del_butt, .chge_butt {
+        height: 0.8cm; /* 調整按鈕高度 */
     }
+}
 
-    input[type='text'] {
-        width: 80%; /* 調整輸入框的寬度 */
+/* 中型裝置（平板） */
+@media (min-width: 601px) and (max-width: 1024px) {
+    body, .show, .func_butt, .del_butt, .chge_butt, input[type='text'] {
+        font-size: 14pt; /* 中等字體大小 */
+    }
+}
+
+/* 大型裝置（桌面） */
+@media (min-width: 1025px) {
+    body, .show, .func_butt, .del_butt, .chge_butt, input[type='text'] {
+        font-size: 16pt; /* 較大字體大小 */
     }
 }
